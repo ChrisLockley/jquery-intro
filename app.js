@@ -51,12 +51,29 @@ $( document ).ready(function() {
         const { username, score, pic } = player;
         playerList.append(
             `<li id="${username}">
-                <ul>
-                    <li>${username}</li>
-                    <li><img src="${pic}">></li>
-                    <li>${score}</li>
-                </ul>
+                <img src="${pic}" style="border-radius: 100%;"><span> Name: ${username}</span><span>Score: ${score}</span>
             </li>`
         )
-    })
+    });
+
+    const playerCard = $( '.player' ).children('img');
+
+    /*playerCard.on('click', function() {
+        let parentId = $( this ).parent('li').attr('id');
+
+        console.log(parentId)
+    });*/
+    
+    playerCard.on({
+        mouseenter: function(event) {
+            console.log(event);
+        },
+        mouseleave: function(event) {
+            console.log(event);
+        },
+        click: function() {
+            let parentId = $( this ).parent('li').attr('id');
+
+        console.log(parentId)
+    }});
 });
